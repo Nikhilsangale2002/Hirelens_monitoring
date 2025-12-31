@@ -156,7 +156,7 @@ def plan_based_rate_limit(f):
     def decorated(*args, **kwargs):
         try:
             from flask_jwt_extended import verify_jwt_in_request, get_jwt_identity
-            from models.user import User
+            from models.user import User  # type: ignore
             
             verify_jwt_in_request()
             user_id = get_jwt_identity()
